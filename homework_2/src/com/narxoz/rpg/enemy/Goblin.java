@@ -1,0 +1,18 @@
+package com.narxoz.rpg.enemy;
+import java.util.List;
+import java.util.Map;
+import com.narxoz.rpg.combat.Ability;
+import com.narxoz.rpg.loot.LootTable;
+public class Goblin extends Enemy {
+    public Goblin(String name, int health, int damage, int defense, int speed,
+                  String element, List<Ability> abilities, LootTable loot,
+                  String ai, Map<Integer, Integer> phases) {
+        super(name, health, damage, defense, speed, element, abilities, loot, ai, phases);
+    }
+    @Override
+    protected Enemy createClone(List<Ability> abilities, LootTable loot, Map<Integer, Integer> phases) {
+        return new Goblin(this.name, 
+            this.health, this.damage, 
+            this.defense,this.speed, this.element, abilities, loot, this.ai, phases);
+    }
+}
